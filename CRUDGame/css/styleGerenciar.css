@@ -1,0 +1,50 @@
+﻿
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Bebas Neue', sans-serif;
+    /*font-family: 'Lato', sans-serif;*/
+}
+
+.container {
+    background-image: linear-gradient(to top,#84c1b1,#c6c39a);
+    margin: 10vh 20vw 10vw 20vw;
+    border-radius: 5px;
+    padding: 1vh;
+    border: 1px;
+    text-align: center;
+    margin-top: 10vh;
+}
+
+.border {
+    text-decoration: none;
+    color: black;
+}
+
+    .border:hover {
+        color: white;
+    }
+
+
+.tabela {
+    margin:auto;
+}
+
+borderInfinity border-radius: 5px;
+}
+
+#btnConfirmar {
+    border-radius: 5px;
+}
+
+#classeSub {
+    border-radius: 5px;
+}
+
+.classBorder{
+    border-radius: 5px;
+}

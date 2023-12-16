@@ -1,0 +1,404 @@
+
+-- --------------------------------------------------
+-- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
+-- --------------------------------------------------
+-- Date Created: 12/04/2023 22:39:05
+-- Generated from EDMX file: C:\Users\pedro\Desktop\RPG GAME\CRUDGameSolution\CRUDGame\RPGDBEntities.edmx
+-- --------------------------------------------------
+
+SET QUOTED_IDENTIFIER OFF;
+GO
+USE [RPGDB];
+GO
+IF SCHEMA_ID(N'dbo') IS NULL EXECUTE(N'CREATE SCHEMA [dbo]');
+GO
+
+-- --------------------------------------------------
+-- Dropping existing FOREIGN KEY constraints
+-- --------------------------------------------------
+
+IF OBJECT_ID(N'[dbo].[FK_Habilidade_PersonHab]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Personagem_Habilidade] DROP CONSTRAINT [FK_Habilidade_PersonHab];
+GO
+IF OBJECT_ID(N'[dbo].[FK_LogAcesso_Usuario]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[LogAcesso] DROP CONSTRAINT [FK_LogAcesso_Usuario];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Personagem_CorCabelo]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Personagens] DROP CONSTRAINT [FK_Personagem_CorCabelo];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Personagem_CorOlho]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Personagens] DROP CONSTRAINT [FK_Personagem_CorOlho];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Personagem_CorPele]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Personagens] DROP CONSTRAINT [FK_Personagem_CorPele];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Personagem_PersonHab]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Personagem_Habilidade] DROP CONSTRAINT [FK_Personagem_PersonHab];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Personagem_RacaID]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Personagens] DROP CONSTRAINT [FK_Personagem_RacaID];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Personagem_SubclasseID]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Personagens] DROP CONSTRAINT [FK_Personagem_SubclasseID];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Subclasse_Classe]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Subclasses] DROP CONSTRAINT [FK_Subclasse_Classe];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Usuario_PerfilUsuario]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Usuario] DROP CONSTRAINT [FK_Usuario_PerfilUsuario];
+GO
+
+-- --------------------------------------------------
+-- Dropping existing tables
+-- --------------------------------------------------
+
+IF OBJECT_ID(N'[dbo].[Classes]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Classes];
+GO
+IF OBJECT_ID(N'[dbo].[Cores]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Cores];
+GO
+IF OBJECT_ID(N'[dbo].[Habilidades]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Habilidades];
+GO
+IF OBJECT_ID(N'[dbo].[LogAcesso]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[LogAcesso];
+GO
+IF OBJECT_ID(N'[dbo].[PerfilUsuario]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PerfilUsuario];
+GO
+IF OBJECT_ID(N'[dbo].[Personagem_Habilidade]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Personagem_Habilidade];
+GO
+IF OBJECT_ID(N'[dbo].[Personagens]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Personagens];
+GO
+IF OBJECT_ID(N'[dbo].[Racas]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Racas];
+GO
+IF OBJECT_ID(N'[dbo].[Subclasses]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Subclasses];
+GO
+IF OBJECT_ID(N'[dbo].[Usuario]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Usuario];
+GO
+
+-- --------------------------------------------------
+-- Creating all tables
+-- --------------------------------------------------
+
+-- Creating table 'Classes'
+CREATE TABLE [dbo].[Classes] (
+    [IdClasse] int IDENTITY(1,1) NOT NULL,
+    [Descricao] varchar(100)  NOT NULL
+);
+GO
+
+-- Creating table 'Cores'
+CREATE TABLE [dbo].[Cores] (
+    [IdCor] int IDENTITY(1,1) NOT NULL,
+    [Descricao] varchar(50)  NOT NULL
+);
+GO
+
+-- Creating table 'Habilidades'
+CREATE TABLE [dbo].[Habilidades] (
+    [IdHabilidade] int IDENTITY(1,1) NOT NULL,
+    [Descricao] varchar(50)  NOT NULL
+);
+GO
+
+-- Creating table 'Personagem_Habilidade'
+CREATE TABLE [dbo].[Personagem_Habilidade] (
+    [IdPersonHab] int IDENTITY(1,1) NOT NULL,
+    [Habilidades_IdHabilidade] int  NOT NULL,
+    [Personagens_IdPersonagem] int  NOT NULL
+);
+GO
+
+-- Creating table 'Personagens'
+CREATE TABLE [dbo].[Personagens] (
+    [IdPersonagem] int IDENTITY(1,1) NOT NULL,
+    [Forca] int  NOT NULL,
+    [Destreza] int  NOT NULL,
+    [Sabedoria] int  NOT NULL,
+    [Constituicao] int  NOT NULL,
+    [Inteligencia] int  NOT NULL,
+    [Carisma] int  NOT NULL,
+    [Peso] decimal(9,2)  NOT NULL,
+    [Altura] decimal(9,2)  NOT NULL,
+    [CorCabelo] int  NOT NULL,
+    [EstiloCabelo] varchar(100)  NOT NULL,
+    [CorOlho] int  NOT NULL,
+    [CorPele] int  NOT NULL,
+    [DataNasc] datetime  NOT NULL,
+    [Nivel] int  NOT NULL,
+    [NomePersonagem] varchar(100)  NOT NULL,
+    [Sexo] varchar(50)  NOT NULL,
+    [RacaID] int  NOT NULL,
+    [SubclasseID] int  NOT NULL
+);
+GO
+
+-- Creating table 'Racas'
+CREATE TABLE [dbo].[Racas] (
+    [IdRaca] int IDENTITY(1,1) NOT NULL,
+    [Descricao] varchar(50)  NOT NULL
+);
+GO
+
+-- Creating table 'Subclasses'
+CREATE TABLE [dbo].[Subclasses] (
+    [IdSubclasse] int IDENTITY(1,1) NOT NULL,
+    [Descricao] varchar(50)  NOT NULL,
+    [ClasseID] int  NOT NULL
+);
+GO
+
+-- Creating table 'LogAcessoes'
+CREATE TABLE [dbo].[LogAcessoes] (
+    [IdLogAcesso] int IDENTITY(1,1) NOT NULL,
+    [UsuarioId] int  NOT NULL,
+    [DataHoraAcesso] datetime  NOT NULL
+);
+GO
+
+-- Creating table 'PerfilUsuarios'
+CREATE TABLE [dbo].[PerfilUsuarios] (
+    [IdPerfilUsuario] int IDENTITY(1,1) NOT NULL,
+    [Descricao] varchar(50)  NOT NULL
+);
+GO
+
+-- Creating table 'Usuarios'
+CREATE TABLE [dbo].[Usuarios] (
+    [IdUsuario] int IDENTITY(1,1) NOT NULL,
+    [Nome] varchar(150)  NOT NULL,
+    [Login] varchar(150)  NOT NULL,
+    [Senha] varchar(512)  NOT NULL,
+    [DataNasc] datetime  NOT NULL,
+    [PerfilUsuarioId] int  NOT NULL
+);
+GO
+
+-- --------------------------------------------------
+-- Creating all PRIMARY KEY constraints
+-- --------------------------------------------------
+
+-- Creating primary key on [IdClasse] in table 'Classes'
+ALTER TABLE [dbo].[Classes]
+ADD CONSTRAINT [PK_Classes]
+    PRIMARY KEY CLUSTERED ([IdClasse] ASC);
+GO
+
+-- Creating primary key on [IdCor] in table 'Cores'
+ALTER TABLE [dbo].[Cores]
+ADD CONSTRAINT [PK_Cores]
+    PRIMARY KEY CLUSTERED ([IdCor] ASC);
+GO
+
+-- Creating primary key on [IdHabilidade] in table 'Habilidades'
+ALTER TABLE [dbo].[Habilidades]
+ADD CONSTRAINT [PK_Habilidades]
+    PRIMARY KEY CLUSTERED ([IdHabilidade] ASC);
+GO
+
+-- Creating primary key on [IdPersonHab] in table 'Personagem_Habilidade'
+ALTER TABLE [dbo].[Personagem_Habilidade]
+ADD CONSTRAINT [PK_Personagem_Habilidade]
+    PRIMARY KEY CLUSTERED ([IdPersonHab] ASC);
+GO
+
+-- Creating primary key on [IdPersonagem] in table 'Personagens'
+ALTER TABLE [dbo].[Personagens]
+ADD CONSTRAINT [PK_Personagens]
+    PRIMARY KEY CLUSTERED ([IdPersonagem] ASC);
+GO
+
+-- Creating primary key on [IdRaca] in table 'Racas'
+ALTER TABLE [dbo].[Racas]
+ADD CONSTRAINT [PK_Racas]
+    PRIMARY KEY CLUSTERED ([IdRaca] ASC);
+GO
+
+-- Creating primary key on [IdSubclasse] in table 'Subclasses'
+ALTER TABLE [dbo].[Subclasses]
+ADD CONSTRAINT [PK_Subclasses]
+    PRIMARY KEY CLUSTERED ([IdSubclasse] ASC);
+GO
+
+-- Creating primary key on [IdLogAcesso] in table 'LogAcessoes'
+ALTER TABLE [dbo].[LogAcessoes]
+ADD CONSTRAINT [PK_LogAcessoes]
+    PRIMARY KEY CLUSTERED ([IdLogAcesso] ASC);
+GO
+
+-- Creating primary key on [IdPerfilUsuario] in table 'PerfilUsuarios'
+ALTER TABLE [dbo].[PerfilUsuarios]
+ADD CONSTRAINT [PK_PerfilUsuarios]
+    PRIMARY KEY CLUSTERED ([IdPerfilUsuario] ASC);
+GO
+
+-- Creating primary key on [IdUsuario] in table 'Usuarios'
+ALTER TABLE [dbo].[Usuarios]
+ADD CONSTRAINT [PK_Usuarios]
+    PRIMARY KEY CLUSTERED ([IdUsuario] ASC);
+GO
+
+-- --------------------------------------------------
+-- Creating all FOREIGN KEY constraints
+-- --------------------------------------------------
+
+-- Creating foreign key on [ClasseID] in table 'Subclasses'
+ALTER TABLE [dbo].[Subclasses]
+ADD CONSTRAINT [FK_Subclasse_Classe]
+    FOREIGN KEY ([ClasseID])
+    REFERENCES [dbo].[Classes]
+        ([IdClasse])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_Subclasse_Classe'
+CREATE INDEX [IX_FK_Subclasse_Classe]
+ON [dbo].[Subclasses]
+    ([ClasseID]);
+GO
+
+-- Creating foreign key on [CorCabelo] in table 'Personagens'
+ALTER TABLE [dbo].[Personagens]
+ADD CONSTRAINT [FK_Personagem_CorCabelo]
+    FOREIGN KEY ([CorCabelo])
+    REFERENCES [dbo].[Cores]
+        ([IdCor])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_Personagem_CorCabelo'
+CREATE INDEX [IX_FK_Personagem_CorCabelo]
+ON [dbo].[Personagens]
+    ([CorCabelo]);
+GO
+
+-- Creating foreign key on [CorOlho] in table 'Personagens'
+ALTER TABLE [dbo].[Personagens]
+ADD CONSTRAINT [FK_Personagem_CorOlho]
+    FOREIGN KEY ([CorOlho])
+    REFERENCES [dbo].[Cores]
+        ([IdCor])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_Personagem_CorOlho'
+CREATE INDEX [IX_FK_Personagem_CorOlho]
+ON [dbo].[Personagens]
+    ([CorOlho]);
+GO
+
+-- Creating foreign key on [CorPele] in table 'Personagens'
+ALTER TABLE [dbo].[Personagens]
+ADD CONSTRAINT [FK_Personagem_CorPele]
+    FOREIGN KEY ([CorPele])
+    REFERENCES [dbo].[Cores]
+        ([IdCor])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_Personagem_CorPele'
+CREATE INDEX [IX_FK_Personagem_CorPele]
+ON [dbo].[Personagens]
+    ([CorPele]);
+GO
+
+-- Creating foreign key on [Habilidades_IdHabilidade] in table 'Personagem_Habilidade'
+ALTER TABLE [dbo].[Personagem_Habilidade]
+ADD CONSTRAINT [FK_Personagem_PersonHab]
+    FOREIGN KEY ([Habilidades_IdHabilidade])
+    REFERENCES [dbo].[Habilidades]
+        ([IdHabilidade])
+    ON DELETE CASCADE ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_Personagem_PersonHab'
+CREATE INDEX [IX_FK_Personagem_PersonHab]
+ON [dbo].[Personagem_Habilidade]
+    ([Habilidades_IdHabilidade]);
+GO
+
+-- Creating foreign key on [Personagens_IdPersonagem] in table 'Personagem_Habilidade'
+ALTER TABLE [dbo].[Personagem_Habilidade]
+ADD CONSTRAINT [FK_Habilidade_PersonHab]
+    FOREIGN KEY ([Personagens_IdPersonagem])
+    REFERENCES [dbo].[Personagens]
+        ([IdPersonagem])
+    ON DELETE CASCADE ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_Habilidade_PersonHab'
+CREATE INDEX [IX_FK_Habilidade_PersonHab]
+ON [dbo].[Personagem_Habilidade]
+    ([Personagens_IdPersonagem]);
+GO
+
+-- Creating foreign key on [RacaID] in table 'Personagens'
+ALTER TABLE [dbo].[Personagens]
+ADD CONSTRAINT [FK_Personagem_RacaID]
+    FOREIGN KEY ([RacaID])
+    REFERENCES [dbo].[Racas]
+        ([IdRaca])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_Personagem_RacaID'
+CREATE INDEX [IX_FK_Personagem_RacaID]
+ON [dbo].[Personagens]
+    ([RacaID]);
+GO
+
+-- Creating foreign key on [SubclasseID] in table 'Personagens'
+ALTER TABLE [dbo].[Personagens]
+ADD CONSTRAINT [FK_Personagem_SubclasseID]
+    FOREIGN KEY ([SubclasseID])
+    REFERENCES [dbo].[Subclasses]
+        ([IdSubclasse])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_Personagem_SubclasseID'
+CREATE INDEX [IX_FK_Personagem_SubclasseID]
+ON [dbo].[Personagens]
+    ([SubclasseID]);
+GO
+
+-- Creating foreign key on [UsuarioId] in table 'LogAcessoes'
+ALTER TABLE [dbo].[LogAcessoes]
+ADD CONSTRAINT [FK_LogAcesso_Usuario]
+    FOREIGN KEY ([UsuarioId])
+    REFERENCES [dbo].[Usuarios]
+        ([IdUsuario])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_LogAcesso_Usuario'
+CREATE INDEX [IX_FK_LogAcesso_Usuario]
+ON [dbo].[LogAcessoes]
+    ([UsuarioId]);
+GO
+
+-- Creating foreign key on [PerfilUsuarioId] in table 'Usuarios'
+ALTER TABLE [dbo].[Usuarios]
+ADD CONSTRAINT [FK_Usuario_PerfilUsuario]
+    FOREIGN KEY ([PerfilUsuarioId])
+    REFERENCES [dbo].[PerfilUsuarios]
+        ([IdPerfilUsuario])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_Usuario_PerfilUsuario'
+CREATE INDEX [IX_FK_Usuario_PerfilUsuario]
+ON [dbo].[Usuarios]
+    ([PerfilUsuarioId]);
+GO
+
+-- --------------------------------------------------
+-- Script has ended
+-- --------------------------------------------------

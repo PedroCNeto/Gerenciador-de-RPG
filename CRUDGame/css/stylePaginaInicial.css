@@ -1,0 +1,56 @@
+﻿
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Bebas Neue', sans-serif;
+    /*font-family: 'Lato', sans-serif;*/
+}
+
+.container {
+    background-color: antiquewhite;
+    margin: 10vh 20vw 0 20vw;
+    text-align: center;
+    padding: 1vh;
+    background-image: linear-gradient(to top,#84c1b1,#c6c39a);
+    border-radius: 5px;
+    height: 45vh;
+}
+
+#buttonVoltar {
+    text-decoration: none;
+    color: black;
+}
+    #buttonVoltar:hover {
+        text-decoration: none;
+        color: white;
+    }
+.border {
+    border-radius: 5px;
+}
+
+#LoginStatus1 {
+    text-decoration: none;
+    color: black;
+    font-size: 1rem;
+}
+    #LoginStatus1:hover {
+        text-decoration: none;
+        color: white;
+        font-size: 1.2rem;
+    }
+
+.buttons > p > a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.2rem;
+}
+
+    .buttons > p > a:hover {
+        text-decoration: none;
+        color: white;
+        font-size: 1.5rem;
+    }

@@ -1,0 +1,76 @@
+SET IDENTITY_INSERT [dbo].[Classes] ON
+INSERT INTO [dbo].[Classes] ([IdClasse], [Descricao]) VALUES (2, N'Mago')
+INSERT INTO [dbo].[Classes] ([IdClasse], [Descricao]) VALUES (6, N'Tanque')
+INSERT INTO [dbo].[Classes] ([IdClasse], [Descricao]) VALUES (7, N'Suporte')
+INSERT INTO [dbo].[Classes] ([IdClasse], [Descricao]) VALUES (8, N'Guerreiro')
+INSERT INTO [dbo].[Classes] ([IdClasse], [Descricao]) VALUES (9, N'Paladino')
+INSERT INTO [dbo].[Classes] ([IdClasse], [Descricao]) VALUES (10, N'Arqueiro')
+INSERT INTO [dbo].[Classes] ([IdClasse], [Descricao]) VALUES (11, N'Ladino')
+INSERT INTO [dbo].[Classes] ([IdClasse], [Descricao]) VALUES (12, N'Druida')
+INSERT INTO [dbo].[Classes] ([IdClasse], [Descricao]) VALUES (13, N'Monge')
+INSERT INTO [dbo].[Classes] ([IdClasse], [Descricao]) VALUES (14, N'Bardo')
+SET IDENTITY_INSERT [dbo].[Classes] OFF
+
+SET IDENTITY_INSERT [dbo].[Cores] ON
+INSERT INTO [dbo].[Cores] ([IdCor], [Descricao]) VALUES (1, N'Preto')
+INSERT INTO [dbo].[Cores] ([IdCor], [Descricao]) VALUES (2, N'Marrom')
+INSERT INTO [dbo].[Cores] ([IdCor], [Descricao]) VALUES (3, N'Amarelo')
+INSERT INTO [dbo].[Cores] ([IdCor], [Descricao]) VALUES (5, N'Azul')
+INSERT INTO [dbo].[Cores] ([IdCor], [Descricao]) VALUES (6, N'Cinza')
+INSERT INTO [dbo].[Cores] ([IdCor], [Descricao]) VALUES (7, N'Ciano')
+INSERT INTO [dbo].[Cores] ([IdCor], [Descricao]) VALUES (8, N'Branco')
+INSERT INTO [dbo].[Cores] ([IdCor], [Descricao]) VALUES (9, N'Vermelho')
+INSERT INTO [dbo].[Cores] ([IdCor], [Descricao]) VALUES (10, N'Verde')
+INSERT INTO [dbo].[Cores] ([IdCor], [Descricao]) VALUES (11, N'Roxo')
+INSERT INTO [dbo].[Cores] ([IdCor], [Descricao]) VALUES (12, N'Laranja')
+SET IDENTITY_INSERT [dbo].[Cores] OFF
+
+SET IDENTITY_INSERT [dbo].[Habilidades] ON
+INSERT INTO [dbo].[Habilidades] ([IdHabilidade], [Descricao]) VALUES (2, N'Bola de fogo')
+INSERT INTO [dbo].[Habilidades] ([IdHabilidade], [Descricao]) VALUES (5, N'Choque do trovão')
+INSERT INTO [dbo].[Habilidades] ([IdHabilidade], [Descricao]) VALUES (6, N'Impeto espiritual')
+INSERT INTO [dbo].[Habilidades] ([IdHabilidade], [Descricao]) VALUES (7, N'Mordida ofuscante')
+SET IDENTITY_INSERT [dbo].[Habilidades] OFF
+
+SET IDENTITY_INSERT [dbo].[Racas] ON
+INSERT INTO [dbo].[Racas] ([IdRaca], [Descricao]) VALUES (2, N'Humano')
+INSERT INTO [dbo].[Racas] ([IdRaca], [Descricao]) VALUES (9, N'Elfo')
+INSERT INTO [dbo].[Racas] ([IdRaca], [Descricao]) VALUES (10, N'Gigante')
+INSERT INTO [dbo].[Racas] ([IdRaca], [Descricao]) VALUES (11, N'Goblin')
+INSERT INTO [dbo].[Racas] ([IdRaca], [Descricao]) VALUES (12, N'Anões')
+INSERT INTO [dbo].[Racas] ([IdRaca], [Descricao]) VALUES (13, N'Rivense')
+INSERT INTO [dbo].[Racas] ([IdRaca], [Descricao]) VALUES (14, N'Orc')
+INSERT INTO [dbo].[Racas] ([IdRaca], [Descricao]) VALUES (15, N'Draconiano')
+SET IDENTITY_INSERT [dbo].[Racas] OFF
+
+SET IDENTITY_INSERT [dbo].[Subclasses] ON
+INSERT INTO [dbo].[Subclasses] ([IdSubclasse], [Descricao], [ClasseID]) VALUES (1, N'Bruxo', 2)
+INSERT INTO [dbo].[Subclasses] ([IdSubclasse], [Descricao], [ClasseID]) VALUES (5, N'Feiticeiro', 2)
+INSERT INTO [dbo].[Subclasses] ([IdSubclasse], [Descricao], [ClasseID]) VALUES (7, N'Brutamontes', 6)
+INSERT INTO [dbo].[Subclasses] ([IdSubclasse], [Descricao], [ClasseID]) VALUES (9, N'Combatente', 6)
+INSERT INTO [dbo].[Subclasses] ([IdSubclasse], [Descricao], [ClasseID]) VALUES (10, N'Cura', 7)
+INSERT INTO [dbo].[Subclasses] ([IdSubclasse], [Descricao], [ClasseID]) VALUES (11, N'Potencializador', 7)
+INSERT INTO [dbo].[Subclasses] ([IdSubclasse], [Descricao], [ClasseID]) VALUES (12, N'Lutador', 8)
+INSERT INTO [dbo].[Subclasses] ([IdSubclasse], [Descricao], [ClasseID]) VALUES (13, N'Barbaro', 8)
+INSERT INTO [dbo].[Subclasses] ([IdSubclasse], [Descricao], [ClasseID]) VALUES (14, N'Templário', 9)
+INSERT INTO [dbo].[Subclasses] ([IdSubclasse], [Descricao], [ClasseID]) VALUES (15, N'Controlador', 9)
+INSERT INTO [dbo].[Subclasses] ([IdSubclasse], [Descricao], [ClasseID]) VALUES (16, N'Dano', 10)
+INSERT INTO [dbo].[Subclasses] ([IdSubclasse], [Descricao], [ClasseID]) VALUES (17, N'Controlador', 10)
+INSERT INTO [dbo].[Subclasses] ([IdSubclasse], [Descricao], [ClasseID]) VALUES (18, N'Templários', 11)
+INSERT INTO [dbo].[Subclasses] ([IdSubclasse], [Descricao], [ClasseID]) VALUES (19, N'Voador', 12)
+INSERT INTO [dbo].[Subclasses] ([IdSubclasse], [Descricao], [ClasseID]) VALUES (24, N'Terrestre', 12)
+INSERT INTO [dbo].[Subclasses] ([IdSubclasse], [Descricao], [ClasseID]) VALUES (25, N'Angelicais', 13)
+INSERT INTO [dbo].[Subclasses] ([IdSubclasse], [Descricao], [ClasseID]) VALUES (26, N'Demníacos', 13)
+INSERT INTO [dbo].[Subclasses] ([IdSubclasse], [Descricao], [ClasseID]) VALUES (27, N'Músico', 14)
+SET IDENTITY_INSERT [dbo].[Subclasses] OFF
+
+SET IDENTITY_INSERT [dbo].[Personagens] ON
+INSERT INTO [dbo].[Personagens] ([IdPersonagem], [Forca], [Destreza], [Sabedoria], [Constituicao], [Inteligencia], [Carisma], [Peso], [Altura], [CorCabelo], [EstiloCabelo], [CorOlho], [CorPele], [DataNasc], [Nivel], [NomePersonagem], [Sexo], [RacaID], [SubclasseID]) VALUES (6, 1000, 1000, 1000, 1000, 1000, 1000, CAST(79.00 AS Decimal(9, 2)), CAST(1.81 AS Decimal(9, 2)), 1, N'Blackpower', 7, 1, N'2003-06-03 00:00:00', 1, N'Luciano', N'M', 15, 12)
+INSERT INTO [dbo].[Personagens] ([IdPersonagem], [Forca], [Destreza], [Sabedoria], [Constituicao], [Inteligencia], [Carisma], [Peso], [Altura], [CorCabelo], [EstiloCabelo], [CorOlho], [CorPele], [DataNasc], [Nivel], [NomePersonagem], [Sexo], [RacaID], [SubclasseID]) VALUES (7, 1000, 1000, 1000, 1000, 2000, 0, CAST(102.00 AS Decimal(9, 2)), CAST(1.85 AS Decimal(9, 2)), 1, N'CorteDoJaca', 1, 8, N'2002-02-22 00:00:00', 1, N'Pedro', N'F', 14, 9)
+INSERT INTO [dbo].[Personagens] ([IdPersonagem], [Forca], [Destreza], [Sabedoria], [Constituicao], [Inteligencia], [Carisma], [Peso], [Altura], [CorCabelo], [EstiloCabelo], [CorOlho], [CorPele], [DataNasc], [Nivel], [NomePersonagem], [Sexo], [RacaID], [SubclasseID]) VALUES (8, 8, 4, 9, 9, 8, 6, CAST(79.00 AS Decimal(9, 2)), CAST(1.81 AS Decimal(9, 2)), 3, N'militar', 1, 11, N'2000-02-22 00:00:00', 1, N'Maurício alemao', N'M', 9, 18)
+SET IDENTITY_INSERT [dbo].[Personagens] OFF
+
+SET IDENTITY_INSERT [dbo].[PerfilUsuarios] ON
+INSERT INTO [dbo].[PerfilUsuarios] ([IdPerfilUsuario], [Descricao]) VALUES (1, N'Usuario')
+SET IDENTITY_INSERT [dbo].[PerfilUsuarios] OFF
+

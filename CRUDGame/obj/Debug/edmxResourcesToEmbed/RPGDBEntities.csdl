@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RPGDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Class">
+    <Key>
+      <PropertyRef Name="IdClasse" />
+    </Key>
+    <Property Name="IdClasse" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descricao" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Subclasses" Relationship="Self.FK_Subclasse_Classe" FromRole="Classes" ToRole="Subclasses" />
+  </EntityType>
+  <EntityType Name="Core">
+    <Key>
+      <PropertyRef Name="IdCor" />
+    </Key>
+    <Property Name="IdCor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Personagens" Relationship="Self.FK_Personagem_CorCabelo" FromRole="Cores" ToRole="Personagens" />
+    <NavigationProperty Name="Personagens1" Relationship="Self.FK_Personagem_CorOlho" FromRole="Cores" ToRole="Personagens" />
+    <NavigationProperty Name="Personagens2" Relationship="Self.FK_Personagem_CorPele" FromRole="Cores" ToRole="Personagens" />
+  </EntityType>
+  <EntityType Name="Habilidade">
+    <Key>
+      <PropertyRef Name="IdHabilidade" />
+    </Key>
+    <Property Name="IdHabilidade" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Personagem_Habilidade" Relationship="Self.FK_Personagem_PersonHab" FromRole="Habilidades" ToRole="Personagem_Habilidade" />
+  </EntityType>
+  <EntityType Name="LogAcesso">
+    <Key>
+      <PropertyRef Name="IdLogAcesso" />
+    </Key>
+    <Property Name="IdLogAcesso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UsuarioId" Type="Int32" Nullable="false" />
+    <Property Name="DataHoraAcesso" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK_LogAcesso_Usuario" FromRole="LogAcessoes" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="PerfilUsuario">
+    <Key>
+      <PropertyRef Name="IdPerfilUsuario" />
+    </Key>
+    <Property Name="IdPerfilUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK_Usuario_PerfilUsuario" FromRole="PerfilUsuarios" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="Personagem_Habilidade">
+    <Key>
+      <PropertyRef Name="IdPersonHab" />
+    </Key>
+    <Property Name="IdPersonHab" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Habilidades_IdHabilidade" Type="Int32" Nullable="false" />
+    <Property Name="Personagens_IdPersonagem" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Habilidade" Relationship="Self.FK_Personagem_PersonHab" FromRole="Personagem_Habilidade" ToRole="Habilidades" />
+    <NavigationProperty Name="Personagen" Relationship="Self.FK_Habilidade_PersonHab" FromRole="Personagem_Habilidade" ToRole="Personagens" />
+  </EntityType>
+  <EntityType Name="Personagen">
+    <Key>
+      <PropertyRef Name="IdPersonagem" />
+    </Key>
+    <Property Name="IdPersonagem" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Forca" Type="Int32" Nullable="false" />
+    <Property Name="Destreza" Type="Int32" Nullable="false" />
+    <Property Name="Sabedoria" Type="Int32" Nullable="false" />
+    <Property Name="Constituicao" Type="Int32" Nullable="false" />
+    <Property Name="Inteligencia" Type="Int32" Nullable="false" />
+    <Property Name="Carisma" Type="Int32" Nullable="false" />
+    <Property Name="Peso" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
+    <Property Name="Altura" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
+    <Property Name="CorCabelo" Type="Int32" Nullable="false" />
+    <Property Name="EstiloCabelo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CorOlho" Type="Int32" Nullable="false" />
+    <Property Name="CorPele" Type="Int32" Nullable="false" />
+    <Property Name="DataNasc" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Nivel" Type="Int32" Nullable="false" />
+    <Property Name="NomePersonagem" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Sexo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RacaID" Type="Int32" Nullable="false" />
+    <Property Name="SubclasseID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Core" Relationship="Self.FK_Personagem_CorCabelo" FromRole="Personagens" ToRole="Cores" />
+    <NavigationProperty Name="Core1" Relationship="Self.FK_Personagem_CorOlho" FromRole="Personagens" ToRole="Cores" />
+    <NavigationProperty Name="Core2" Relationship="Self.FK_Personagem_CorPele" FromRole="Personagens" ToRole="Cores" />
+    <NavigationProperty Name="Personagem_Habilidade" Relationship="Self.FK_Habilidade_PersonHab" FromRole="Personagens" ToRole="Personagem_Habilidade" />
+    <NavigationProperty Name="Raca" Relationship="Self.FK_Personagem_RacaID" FromRole="Personagens" ToRole="Racas" />
+    <NavigationProperty Name="Subclass" Relationship="Self.FK_Personagem_SubclasseID" FromRole="Personagens" ToRole="Subclasses" />
+  </EntityType>
+  <EntityType Name="Raca">
+    <Key>
+      <PropertyRef Name="IdRaca" />
+    </Key>
+    <Property Name="IdRaca" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Personagens" Relationship="Self.FK_Personagem_RacaID" FromRole="Racas" ToRole="Personagens" />
+  </EntityType>
+  <EntityType Name="Subclass">
+    <Key>
+      <PropertyRef Name="IdSubclasse" />
+    </Key>
+    <Property Name="IdSubclasse" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ClasseID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Class" Relationship="Self.FK_Subclasse_Classe" FromRole="Subclasses" ToRole="Classes" />
+    <NavigationProperty Name="Personagens" Relationship="Self.FK_Personagem_SubclasseID" FromRole="Subclasses" ToRole="Personagens" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+    </Key>
+    <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Login" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Senha" Type="String" MaxLength="512" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DataNasc" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="PerfilUsuarioId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="LogAcessoes" Relationship="Self.FK_LogAcesso_Usuario" FromRole="Usuarios" ToRole="LogAcessoes" />
+    <NavigationProperty Name="PerfilUsuario" Relationship="Self.FK_Usuario_PerfilUsuario" FromRole="Usuarios" ToRole="PerfilUsuarios" />
+  </EntityType>
+  <Association Name="FK_Subclasse_Classe">
+    <End Role="Classes" Type="Self.Class" Multiplicity="1" />
+    <End Role="Subclasses" Type="Self.Subclass" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Classes">
+        <PropertyRef Name="IdClasse" />
+      </Principal>
+      <Dependent Role="Subclasses">
+        <PropertyRef Name="ClasseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Personagem_CorCabelo">
+    <End Role="Cores" Type="Self.Core" Multiplicity="1" />
+    <End Role="Personagens" Type="Self.Personagen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cores">
+        <PropertyRef Name="IdCor" />
+      </Principal>
+      <Dependent Role="Personagens">
+        <PropertyRef Name="CorCabelo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Personagem_CorOlho">
+    <End Role="Cores" Type="Self.Core" Multiplicity="1" />
+    <End Role="Personagens" Type="Self.Personagen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cores">
+        <PropertyRef Name="IdCor" />
+      </Principal>
+      <Dependent Role="Personagens">
+        <PropertyRef Name="CorOlho" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Personagem_CorPele">
+    <End Role="Cores" Type="Self.Core" Multiplicity="1" />
+    <End Role="Personagens" Type="Self.Personagen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cores">
+        <PropertyRef Name="IdCor" />
+      </Principal>
+      <Dependent Role="Personagens">
+        <PropertyRef Name="CorPele" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Personagem_PersonHab">
+    <End Role="Habilidades" Type="Self.Habilidade" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Personagem_Habilidade" Type="Self.Personagem_Habilidade" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Habilidades">
+        <PropertyRef Name="IdHabilidade" />
+      </Principal>
+      <Dependent Role="Personagem_Habilidade">
+        <PropertyRef Name="Habilidades_IdHabilidade" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LogAcesso_Usuario">
+    <End Role="Usuarios" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="LogAcessoes" Type="Self.LogAcesso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="LogAcessoes">
+        <PropertyRef Name="UsuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_PerfilUsuario">
+    <End Role="PerfilUsuarios" Type="Self.PerfilUsuario" Multiplicity="1" />
+    <End Role="Usuarios" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PerfilUsuarios">
+        <PropertyRef Name="IdPerfilUsuario" />
+      </Principal>
+      <Dependent Role="Usuarios">
+        <PropertyRef Name="PerfilUsuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Habilidade_PersonHab">
+    <End Role="Personagens" Type="Self.Personagen" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Personagem_Habilidade" Type="Self.Personagem_Habilidade" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personagens">
+        <PropertyRef Name="IdPersonagem" />
+      </Principal>
+      <Dependent Role="Personagem_Habilidade">
+        <PropertyRef Name="Personagens_IdPersonagem" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Personagem_RacaID">
+    <End Role="Racas" Type="Self.Raca" Multiplicity="1" />
+    <End Role="Personagens" Type="Self.Personagen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Racas">
+        <PropertyRef Name="IdRaca" />
+      </Principal>
+      <Dependent Role="Personagens">
+        <PropertyRef Name="RacaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Personagem_SubclasseID">
+    <End Role="Subclasses" Type="Self.Subclass" Multiplicity="1" />
+    <End Role="Personagens" Type="Self.Personagen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subclasses">
+        <PropertyRef Name="IdSubclasse" />
+      </Principal>
+      <Dependent Role="Personagens">
+        <PropertyRef Name="SubclasseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="RPGDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Classes" EntityType="Self.Class" />
+    <EntitySet Name="Cores" EntityType="Self.Core" />
+    <EntitySet Name="Habilidades" EntityType="Self.Habilidade" />
+    <EntitySet Name="LogAcessoes" EntityType="Self.LogAcesso" />
+    <EntitySet Name="PerfilUsuarios" EntityType="Self.PerfilUsuario" />
+    <EntitySet Name="Personagem_Habilidade" EntityType="Self.Personagem_Habilidade" />
+    <EntitySet Name="Personagens" EntityType="Self.Personagen" />
+    <EntitySet Name="Racas" EntityType="Self.Raca" />
+    <EntitySet Name="Subclasses" EntityType="Self.Subclass" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuario" />
+    <AssociationSet Name="FK_Subclasse_Classe" Association="Self.FK_Subclasse_Classe">
+      <End Role="Classes" EntitySet="Classes" />
+      <End Role="Subclasses" EntitySet="Subclasses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Personagem_CorCabelo" Association="Self.FK_Personagem_CorCabelo">
+      <End Role="Cores" EntitySet="Cores" />
+      <End Role="Personagens" EntitySet="Personagens" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Personagem_CorOlho" Association="Self.FK_Personagem_CorOlho">
+      <End Role="Cores" EntitySet="Cores" />
+      <End Role="Personagens" EntitySet="Personagens" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Personagem_CorPele" Association="Self.FK_Personagem_CorPele">
+      <End Role="Cores" EntitySet="Cores" />
+      <End Role="Personagens" EntitySet="Personagens" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Personagem_PersonHab" Association="Self.FK_Personagem_PersonHab">
+      <End Role="Habilidades" EntitySet="Habilidades" />
+      <End Role="Personagem_Habilidade" EntitySet="Personagem_Habilidade" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LogAcesso_Usuario" Association="Self.FK_LogAcesso_Usuario">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="LogAcessoes" EntitySet="LogAcessoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_PerfilUsuario" Association="Self.FK_Usuario_PerfilUsuario">
+      <End Role="PerfilUsuarios" EntitySet="PerfilUsuarios" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Habilidade_PersonHab" Association="Self.FK_Habilidade_PersonHab">
+      <End Role="Personagens" EntitySet="Personagens" />
+      <End Role="Personagem_Habilidade" EntitySet="Personagem_Habilidade" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Personagem_RacaID" Association="Self.FK_Personagem_RacaID">
+      <End Role="Racas" EntitySet="Racas" />
+      <End Role="Personagens" EntitySet="Personagens" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Personagem_SubclasseID" Association="Self.FK_Personagem_SubclasseID">
+      <End Role="Subclasses" EntitySet="Subclasses" />
+      <End Role="Personagens" EntitySet="Personagens" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

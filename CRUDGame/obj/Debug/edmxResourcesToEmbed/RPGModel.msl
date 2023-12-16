@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RPGDBModelStoreContainer" CdmEntityContainer="RPGDBEntities">
+    <EntitySetMapping Name="Classes">
+      <EntityTypeMapping TypeName="RPGDBModel.Classe">
+        <MappingFragment StoreEntitySet="Classe">
+          <ScalarProperty Name="IdClasse" ColumnName="IdClasse" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Racas">
+      <EntityTypeMapping TypeName="RPGDBModel.Raca">
+        <MappingFragment StoreEntitySet="Raca">
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+          <ScalarProperty Name="IdRaca" ColumnName="IdRaca" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Habilidades">
+      <EntityTypeMapping TypeName="RPGDBModel.Habilidade">
+        <MappingFragment StoreEntitySet="Habilidade">
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+          <ScalarProperty Name="IdHabilidade" ColumnName="IdHabilidade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Subclasses">
+      <EntityTypeMapping TypeName="RPGDBModel.Subclasse">
+        <MappingFragment StoreEntitySet="Subclasse">
+          <ScalarProperty Name="ClasseID" ColumnName="ClasseID" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+          <ScalarProperty Name="IdSubclasse" ColumnName="IdSubclasse" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Aparencias">
+      <EntityTypeMapping TypeName="RPGDBModel.Aparencia">
+        <MappingFragment StoreEntitySet="Aparencia">
+          <ScalarProperty Name="CorPele" ColumnName="CorPele" />
+          <ScalarProperty Name="CorOlho" ColumnName="CorOlho" />
+          <ScalarProperty Name="EstiloCabelo" ColumnName="EstiloCabelo" />
+          <ScalarProperty Name="CorCabelo" ColumnName="CorCabelo" />
+          <ScalarProperty Name="Altura" ColumnName="Altura" />
+          <ScalarProperty Name="Peso" ColumnName="Peso" />
+          <ScalarProperty Name="IdAparencia" ColumnName="IdAparencia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Atributoes">
+      <EntityTypeMapping TypeName="RPGDBModel.Atributo">
+        <MappingFragment StoreEntitySet="Atributo">
+          <ScalarProperty Name="Carisma" ColumnName="Carisma" />
+          <ScalarProperty Name="Inteligencia" ColumnName="Inteligencia" />
+          <ScalarProperty Name="Constituicao" ColumnName="Constituicao" />
+          <ScalarProperty Name="Sabedoria" ColumnName="Sabedoria" />
+          <ScalarProperty Name="Destreza" ColumnName="Destreza" />
+          <ScalarProperty Name="Forca" ColumnName="Forca" />
+          <ScalarProperty Name="IdAtributo" ColumnName="IdAtributo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Personagens">
+      <EntityTypeMapping TypeName="RPGDBModel.Personagem">
+        <MappingFragment StoreEntitySet="Personagem">
+          <ScalarProperty Name="AtributoID" ColumnName="AtributoID" />
+          <ScalarProperty Name="AparenciaID" ColumnName="AparenciaID" />
+          <ScalarProperty Name="SubclasseID" ColumnName="SubclasseID" />
+          <ScalarProperty Name="RacaID" ColumnName="RacaID" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="NomePersonagem" ColumnName="NomePersonagem" />
+          <ScalarProperty Name="Nivel" ColumnName="Nivel" />
+          <ScalarProperty Name="DataNasc" ColumnName="DataNasc" />
+          <ScalarProperty Name="IdPersonagem" ColumnName="IdPersonagem" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Personagem_Habilidade" TypeName="RPGDBModel.Personagem_Habilidade" StoreEntitySet="Personagem_Habilidade">
+      <EndProperty Name="Personagem">
+        <ScalarProperty Name="IdPersonagem" ColumnName="PersonagemID" />
+      </EndProperty>
+      <EndProperty Name="Habilidade">
+        <ScalarProperty Name="IdHabilidade" ColumnName="HabilidadeID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

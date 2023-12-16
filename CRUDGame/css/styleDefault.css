@@ -1,0 +1,52 @@
+﻿
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Bebas Neue', sans-serif;
+    /*font-family: 'Lato', sans-serif;*/
+}
+
+.fundo {
+    text-align: center;
+    background-image: linear-gradient(to top,#84c1b1,#c6c39a);
+    margin: 10vh 20vw 0 20vw;
+    border-radius: 5px;
+    padding: 1vh;
+}
+
+#LoginStatus1 {
+    text-decoration: none;
+    color: black;
+}
+
+#LoginStatus1:hover {
+    text-decoration: none;
+    color: white;
+}
+
+#txtUsuario {
+    border-radius: 5px;
+}
+
+#txtSenha {
+    border-radius: 5px;
+}
+
+#btnEntrar {
+    border-radius: 5px;
+}
+
+#btnCliqueAqui {
+    text-decoration: none;
+    color: black;
+    
+}
+
+    #btnCliqueAqui:hover {
+        text-decoration: none;
+        color: white;
+    }
